@@ -1,4 +1,4 @@
-export default class GeneratePrimes {
+class GeneratePrimes {
     static generatePrimes(maxValue: number) {
         if (maxValue >= 2) {
             const s = maxValue + 1
