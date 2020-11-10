@@ -53,20 +53,12 @@ class PrintPrimes {
         PAGENUMBER = 1;
         PAGEOFFSET = 1;
         while (PAGEOFFSET <= M) {
-            console.log(
-                'The First ' + M + ' Prime Numbers ---- Page ' + PAGENUMBER + ''
-            );
+            console.log('The First ' + M + ' Prime Numbers ---- Page ' + PAGENUMBER + '');
             console.log('');
-            for (
-                ROWOFFSET = PAGEOFFSET;
-                ROWOFFSET < PAGEOFFSET + RR;
-                ROWOFFSET++
-            ) {
+            for (ROWOFFSET = PAGEOFFSET; ROWOFFSET < PAGEOFFSET + RR; ROWOFFSET++) {
                 for (C = 0; C < CC; C++) {
                     if (ROWOFFSET + C * RR <= M) {
-                        process.stdout.write(
-                            P[ROWOFFSET + C * RR].toString().padEnd(10, ' ')
-                        );
+                        process.stdout.write(P[ROWOFFSET + C * RR].toString().padEnd(10, ' '));
                     }
                 }
                 console.log('');
