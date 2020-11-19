@@ -1,3 +1,4 @@
+import ArgsExpection, { ErrorCode } from './ArgsException';
 import ArgumentMarshaler from './ArgumentMarshaler';
 
 class Args {
@@ -23,7 +24,9 @@ class Args {
 
     private validateSchemaElementId(elementId: string) {
         const regExpIsLetter = /^\wÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜäëïöüçÇßØøÅåÆæÞþÐð$/;
-        if (!elementId.match(regExpIsLetter))
+        if (!elementId.match(regExpIsLetter)) {
+            throw new ArgsExpection(ErrorCode.INVALID_ARGUMENT_NAME, elementId, null);
+        }
     }
 }
 
