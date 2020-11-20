@@ -1,5 +1,5 @@
 interface ArgumentMarshaler {
-    set: (currentArgument: string) => void;
+    set: (currentArgument: Iterator<string, string, string>) => void;
 }
 
 export default ArgumentMarshaler;
