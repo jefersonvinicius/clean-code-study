@@ -1,7 +1,7 @@
 import ArgsExpection, { ErrorCode } from './ArgsException';
 import ArgumentMarshaler from './ArgumentMarshaler';
 
-class StringArgumentMarshaler implements ArgumentMarshaler {
+class IntegerArgumentMarshaler implements ArgumentMarshaler {
     private intValue = 0;
 
     set(currentArgument: Iterator<string, string, string>) {
@@ -14,12 +14,12 @@ class StringArgumentMarshaler implements ArgumentMarshaler {
     }
 
     static getValue(am: ArgumentMarshaler) {
-        if (am !== null && am instanceof StringArgumentMarshaler) {
-            return (am as StringArgumentMarshaler).intValue;
+        if (am !== null && am instanceof IntegerArgumentMarshaler) {
+            return (am as IntegerArgumentMarshaler).intValue;
         } else {
             return '';
         }
     }
 }
 
-export default StringArgumentMarshaler;
+export default IntegerArgumentMarshaler;
