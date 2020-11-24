@@ -47,17 +47,21 @@ class Args {
     }
 
     private parseArgumentStrings(argsList: string[]) {
-        for (const argString of argsList) {
-            this.currentArgument = argString;
+        for (const [index, argString] of argsList.entries()) {
+            this.currentArgument = argString[index];
             if (argString.startsWith('-')) {
                 this.parseArgumentCharacters(argString.substring(1));
             } else {
+                this.currentArgument = argsList[index - 1];
+                break;
             }
         }
     }
 
-    private parseArgumentCharacters(argsChars: string) {
-        for (let i = 0; i < argsChars.length; i++) {}
+    private parseArgumentCharacters(argChars: string) {
+        for (let i = 0; i < argChars.length; i++) {
+            this.parseArgumentCharacter(argChars.charAt(i));
+        }
     }
 
     private parseArgumentCharacter(argChar: string) {
@@ -67,7 +71,10 @@ class Args {
         } else {
             this.argsFound.add(argChar);
             try {
-            } catch (error) {}
+                m.set(this.currentArgument);
+            } catch (error) {
+                throw error;
+            }
         }
     }
 }
